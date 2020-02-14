@@ -79,6 +79,7 @@ public class Intake extends Subsystem {
             intakeMotor.set(0);
         }
 
+    }
     public static void retractSolenoid() {
     	  firstSolenoid.set(DoubleSolenoid.Value.kReverse);
     }
