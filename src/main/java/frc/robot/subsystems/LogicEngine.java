@@ -63,7 +63,7 @@ public class LogicEngine extends Subsystem {
     @Override
     public void periodic() {
         // Put code here to be run every loop
-            XboxController controller1 = Robot.oi.get1stXboxController();
+            //XboxController controller1 = Robot.oi.get1stXboxController();
             XboxController controller2 = Robot.oi.get2ndXboxController();
             // Willow
             //DriveTrain.Drive(-controller1.getY(GenericHID.Hand.kLeft),controller1.getX(GenericHID.Hand.kRight),controller1.getBumperPressed(GenericHID.Hand.kRight));
