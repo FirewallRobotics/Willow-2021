@@ -85,10 +85,10 @@ public class LogicEngine extends Subsystem {
                 Intake.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 Elevator.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 Shooter.testMotors(RobotMap.MOTOR_TEST_SPEED);
-                DriveTrain.testNanoVision();
+                DriveTrain.driveToPowerCell();
             }
             if (nvtestmode==true) {
-                DriveTrain.testNanoVision();
+                DriveTrain.driveToPowerCell();
                 //Indexer.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 //Intake.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 //Elevator.testMotors(RobotMap.MOTOR_TEST_SPEED);

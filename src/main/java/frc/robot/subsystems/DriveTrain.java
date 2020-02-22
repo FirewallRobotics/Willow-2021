@@ -123,7 +123,7 @@ public class DriveTrain extends Subsystem {
         m_myRobot.tankDrive(motorSpeed, motorSpeed);
     }
 
-    public static void testNanoVision() {
+    public static void driveToPowerCell() {
         double X = Math.round(x.getDouble(-1));
         double Radius = Math.round(radius.getDouble(-1));
         if (X == -1) {
@@ -142,6 +142,9 @@ public class DriveTrain extends Subsystem {
         rightMaster.set(ControlMode.PercentOutput, -LeftSpeed);
 
     }
+
+	public void moveToShootingSpot() {
+	}
 }
 
     // Put methods for controlling this subsystem
