@@ -54,6 +54,9 @@ public class RobotMap {
     public static int INDEXER_SWITCH_4                = 4;
     public static int INDEXER_SWITCH_5                = 5;
 
+    // Random constants
+    public static double FLUSH_INDEXER_TIME           = 3.0;
+
     public static void init() {
 
     }

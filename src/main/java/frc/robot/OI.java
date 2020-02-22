@@ -74,7 +74,19 @@ public class OI {
         JoystickButton firstBack = new JoystickButton(firstController, XboxController.Button.kBack.value);
         JoystickButton firstStart = new JoystickButton(firstController, XboxController.Button.kStart.value);
         
+        JoystickButton secondA = new JoystickButton(firstController, XboxController.Button.kA.value);
+        JoystickButton secondB = new JoystickButton(secondController, XboxController.Button.kB.value);
+        JoystickButton secondX = new JoystickButton(secondController, XboxController.Button.kX.value);
+        JoystickButton secondY = new JoystickButton(secondController, XboxController.Button.kY.value);
+        JoystickButton secondBumperLeft = new JoystickButton(secondController, XboxController.Button.kBumperLeft.value);
+        JoystickButton secondBumperRight = new JoystickButton(secondController, XboxController.Button.kBumperRight.value);
+        JoystickButton secondStickLeft = new JoystickButton(secondController, XboxController.Button.kStickLeft.value);
+        JoystickButton secondStickRight = new JoystickButton(secondController, XboxController.Button.kStickRight.value);
+        JoystickButton secondBack = new JoystickButton(secondController, XboxController.Button.kBack.value);
+        JoystickButton secondStart = new JoystickButton(secondController, XboxController.Button.kStart.value);
 
+        secondA.whenPressed(new CapturePowerCell());
+        //secondStart.whenPressed();
         
         // SmartDashboard Buttons
 
