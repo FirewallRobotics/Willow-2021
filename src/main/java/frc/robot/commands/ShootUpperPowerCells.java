@@ -8,7 +8,7 @@ public class ShootUpperPowerCells extends CommandGroup {
 
     public ShootUpperPowerCells() {
        //addSequential(new LightUpCommand());
-       //addParallel(new DriveToShootSpotCommand());
+       addParallel(new ShooterMoveCommand());
        //addParallel(new adjustTurretCommand());
        addSequential(new StartShooterCommand());
        addSequential(new FlushIndexerCommand());

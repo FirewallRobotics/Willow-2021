@@ -86,6 +86,7 @@ public class OI {
         JoystickButton secondStart = new JoystickButton(secondController, XboxController.Button.kStart.value);
 
         secondA.whenPressed(new CapturePowerCell());
+        secondB.whenPressed(new ShootUpperPowerCells());
         //secondStart.whenPressed();
         
         // SmartDashboard Buttons

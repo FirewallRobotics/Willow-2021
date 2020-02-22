@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * floating around.
  */
 public class RobotMap {
-    // CAN motor controllers
+	// CAN motor controllers
     public static int LEFT_MASTER_DRIVETRAIN_ADDRESS  = 1;
     public static int RIGHT_MASTER_DRIVETRAIN_ADDRESS = 2;
     public static int LEFT_SLAVE_DRIVETRAIN_ADDRESS   = 3;
@@ -55,7 +55,8 @@ public class RobotMap {
     public static int INDEXER_SWITCH_5                = 5;
 
     // Random constants
-    public static double FLUSH_INDEXER_TIME           = 3.0;
+    public static double FLUSH_INDEXER_TIME           = 5.0;
+    public static double EXTEND_ARMS_TIME             = 3.0;
 
     public static void init() {
 

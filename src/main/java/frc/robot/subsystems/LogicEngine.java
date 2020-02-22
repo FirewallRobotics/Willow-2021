@@ -68,7 +68,7 @@ public class LogicEngine extends Subsystem {
             // Willow
             //DriveTrain.Drive(-controller1.getY(GenericHID.Hand.kLeft),controller1.getX(GenericHID.Hand.kRight),controller1.getBumperPressed(GenericHID.Hand.kRight));
             // MiniWillow
-            DriveTrain.Drive(controller1.getY(GenericHID.Hand.kLeft),-controller1.getX(GenericHID.Hand.kRight),controller1.getBumperPressed(GenericHID.Hand.kRight));
+            //DriveTrain.Drive(controller1.getY(GenericHID.Hand.kLeft),-controller1.getX(GenericHID.Hand.kRight),controller1.getBumper(GenericHID.Hand.kRight));
             Shooter.moveTurret(controller2.getBumper(GenericHID.Hand.kLeft),controller2.getBumper(GenericHID.Hand.kRight));
             Shooter.shoot(controller2.getTriggerAxis(Hand.kLeft));
             if (controller2.getStartButtonPressed()){
@@ -85,10 +85,10 @@ public class LogicEngine extends Subsystem {
                 Intake.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 Elevator.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 Shooter.testMotors(RobotMap.MOTOR_TEST_SPEED);
-                DriveTrain.driveToPowerCell();
+                //DriveTrain.driveToPowerCell();
             }
             if (nvtestmode==true) {
-                DriveTrain.driveToPowerCell();
+                //DriveTrain.driveToPowerCell();
                 //Indexer.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 //Intake.testMotors(RobotMap.MOTOR_TEST_SPEED);
                 //Elevator.testMotors(RobotMap.MOTOR_TEST_SPEED);
