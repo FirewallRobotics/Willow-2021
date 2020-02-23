@@ -122,6 +122,6 @@ public class Indexer extends Subsystem {
     public static void stop() {
         //lowSpark.set(0);
         //upperSpark.set(0);
-	}
+    }
 }
 

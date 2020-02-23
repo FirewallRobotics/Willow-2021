@@ -88,8 +88,9 @@ public class OI {
         secondA.whenPressed(new CapturePowerCell());
         secondB.whenPressed(new ShootUpperPowerCells());
         secondStart.whenPressed(new ExtendIntake());
+        secondBack.whenPressed(new IntakeCommand());
         secondStart.whenReleased(new RetractIntake());
-        secondX.whenPressed(new FlushIndexerCommand());
+        secondX.whenPressed(new FlushIndexerCommand(RobotMap.FLUSH_INDEXER_TIME));
         //secondStart.whenPressed();
         
         // SmartDashboard Buttons
