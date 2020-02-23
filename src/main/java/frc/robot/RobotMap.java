@@ -33,9 +33,9 @@ public class RobotMap {
     public static int SECOND_SHOOTER_ADDRESS          = 7;
     
     // PWM motor controllers
-    public static int INTAKER_ADDRESS                 = 0;
-    public static int FIRST_INDEXER_ADDRESS           = 1;
-    public static int SECOND_INDEXER_ADDRESS          = 2;
+    public static int INTAKER_ADDRESS                 = 2;
+    public static int FIRST_INDEXER_ADDRESS           = 0;
+    public static int SECOND_INDEXER_ADDRESS          = 1;
     public static int THIRD_INDEXER_ADDRESS           = 3;
     
     // Speed constants
@@ -43,8 +43,10 @@ public class RobotMap {
     public static double TURRET_SPEED                 = 0.25;
     public static double MOTOR_TEST_SPEED             = 0.5;
     public static double INTAKER_MOTOR_SPEED          = 0.5;
-    public static double INDEXER_CONVEYOR_SPEED       = 0.25;
-    public static double FLUSH_CONVEYOR_SPEED         = 0.25;
+    public static double INDEXER_CONVEYOR_SPEED       = 1.0;
+    public static double FLUSH_CONVEYOR_SPEED         = 1.0;
+    public static double UPPER_INDEXER_SPEED          = 1.0;
+    public static double SHOOTER_SPEED                = 1.0;
     
     // DIO constants
     public static int INTAKER_SWITCH                  = 0;
@@ -57,6 +59,7 @@ public class RobotMap {
     // Random constants
     public static double FLUSH_INDEXER_TIME           = 5.0;
     public static double EXTEND_ARMS_TIME             = 3.0;
+    public static double AUTO_DRIVE_FORWARD_SPEED     = 0.30;
 
     public static void init() {
 

@@ -87,6 +87,9 @@ public class OI {
 
         secondA.whenPressed(new CapturePowerCell());
         secondB.whenPressed(new ShootUpperPowerCells());
+        secondStart.whenPressed(new ExtendIntake());
+        secondStart.whenReleased(new RetractIntake());
+        secondX.whenPressed(new FlushIndexerCommand());
         //secondStart.whenPressed();
         
         // SmartDashboard Buttons
