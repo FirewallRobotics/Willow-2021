@@ -46,7 +46,12 @@ public class RobotMap {
     public static double INDEXER_CONVEYOR_SPEED       = 1.0;
     public static double FLUSH_CONVEYOR_SPEED         = 1.0;
     public static double UPPER_INDEXER_SPEED          = 1.0;
-    public static double SHOOTER_SPEED                = 1.0;
+    public static double LOW_SHOOTER_SPEED            = 0.80;
+    public static double FULL_SHOOTER_SPEED           = 1.0;
+
+    // Joystick constants
+    public static double LOW_JOY_SPEED                = 0.50;
+    public static double FULL_JOY_SPEED               = 0.75;
     
     // DIO constants
     public static int INTAKER_SWITCH                  = 0;

@@ -28,8 +28,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
  *
  */
 public class Indexer extends Subsystem {
-    private static Spark spark1 = new Spark(RobotMap.FIRST_INDEXER_ADDRESS);
-    private static Spark spark2 = new Spark(RobotMap.SECOND_INDEXER_ADDRESS);
+    private static Spark lowSpark = new Spark(RobotMap.FIRST_INDEXER_ADDRESS);
+    private static Spark upperSpark = new Spark(RobotMap.SECOND_INDEXER_ADDRESS);
     //private static Spark spark3 = new Spark(RobotMap.THIRD_INDEXER_ADDRESS);
     private static DigitalInput Button1 = new DigitalInput(RobotMap.INDEXER_SWITCH_1);
     private static DigitalInput Button2 = new DigitalInput(RobotMap.INDEXER_SWITCH_2);
@@ -83,8 +83,8 @@ public class Indexer extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public static void testMotors(double motorSpeed) {
-        spark1.set(motorSpeed);
-        //spark2.set(motorSpeed);
+        lowSpark.set(motorSpeed);
+        upperSpark.set(motorSpeed);
         //spark3.set(motorSpeed);
     }
     //Index with no balls we are going to keep the conveyor running until we pick up a ball.
@@ -127,15 +127,21 @@ public class Indexer extends Subsystem {
             //spark3.set(RobotMap.INDEXER_CONVEYOR_SPEED);
         }*/
     }
-    public void flush() {
-        spark1.set(RobotMap.INDEXER_CONVEYOR_SPEED);
-        spark2.set(RobotMap.UPPER_INDEXER_SPEED);
+    public static void flush() {
+        lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
+        upperSpark.set(RobotMap.UPPER_INDEXER_SPEED);
         //spark3.set(RobotMap.INDEXER_CONVEYOR_SPEED);
     }
 
-	public void stop() {
-        spark1.set(0);
-        spark2.set(0);
+    public static void flushRunLowerShooter() {
+        lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
+        // Reverse this spark to shoot the lower goal
+        upperSpark.set(-RobotMap.UPPER_INDEXER_SPEED);
+
+    }
+    public static void stop() {
+        lowSpark.set(0);
+        upperSpark.set(0);
         //spark3.set(0);
 	}
 }
