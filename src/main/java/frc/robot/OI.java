@@ -91,6 +91,7 @@ public class OI {
         secondBack.whenPressed(new IntakeCommand());
         secondStart.whenReleased(new RetractIntake());
         secondX.whenPressed(new FlushIndexerCommand(RobotMap.FLUSH_INDEXER_TIME));
+        secondY.whenPressed(new StartShooterCommand());
         //secondStart.whenPressed();
         
         // SmartDashboard Buttons
