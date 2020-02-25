@@ -75,7 +75,7 @@ public class Intake extends Subsystem {
         //spark.set(motorSpeed);
     }
 
-    public void intakePowerCell() {
+    //public void intakePowerCell() {
         /*if (!intakeSwitch.get()){
             //intakeMotor.set(RobotMap.INTAKER_MOTOR_SPEED);
         }
@@ -83,7 +83,7 @@ public class Intake extends Subsystem {
             //intakeMotor.set(0);
         }*/
         //intakeMotor.set(motorSpeed);
-    }
+    //}
 
     public void intakePowerCell() {
         //if (!intakeSwitch.get()){
