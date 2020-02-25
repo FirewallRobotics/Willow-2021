@@ -72,6 +72,16 @@ public class Intake extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public static void testMotors(double motorSpeed) {
+        //spark.set(motorSpeed);
+    }
+
+    public void intakePowerCell() {
+        /*if (!intakeSwitch.get()){
+            //intakeMotor.set(RobotMap.INTAKER_MOTOR_SPEED);
+        }
+        else{
+            //intakeMotor.set(0);
+        }*/
         //intakeMotor.set(motorSpeed);
     }
 
