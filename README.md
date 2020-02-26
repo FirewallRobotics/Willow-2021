@@ -12,3 +12,32 @@ Command based robot code.
 | OI.java                 | Operator Interface file.  Defines controllers, buttons, and ties buttons to commands. |
 | Robot.java              | Robot framework file.  Instantiates the subsystems. |
 | RobotMap.java           | Constants file |
+
+| Controller 1 Button mappings     |                           |
+| -------------------------------- | ------------------------- |
+| A                                |                           |
+| B                                |                           |
+| X                                |                           |
+| Y                                |                           |
+| Left Bumper                      |                           |
+| Right Bumper                     |                           |
+| Left Stick                       |                           |
+| Right Stick                      |                           |
+| Back                             |                           |
+| Start                            |                           |
+
+| Controller 2 Button mappings     |                           |
+| -------------------------------- | ------------------------- |
+| A                                |                           |
+| B                                |                           |
+| X                                |                           |
+| Y                                |                           |
+| Left Bumper                      |                           |
+| Right Bumper                     |                           |
+| Left Stick                       |                           |
+| Right Stick                      |                           |
+| Back                             |                           |
+| Start                            |                           |
+
+
+
