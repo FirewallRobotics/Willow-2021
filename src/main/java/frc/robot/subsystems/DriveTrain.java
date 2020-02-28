@@ -56,31 +56,37 @@ public class DriveTrain extends Subsystem {
     private static NetworkTableEntry goalY = goalTable.getEntry("Y");
     private static NetworkTableEntry goalRadius = goalTable.getEntry("R");
     
-    public static double goalMaxRadius = 195;
-    private static double goalMinRadius = 10;
+    public static double goalMaxRadius = 98;
+    private static double goalMinRadius = 5;
     private static double goalMaxOutR = 1;
     private static double goalMinOutR = -1;
-    private static double goalNeutralOffSetR = 0.25;
+
+    // Ball radius when we stop will be 37.5 / 160 = 0.23
+    private static double goalNeutralOffSetR = 0.23;
     private static double goalPGainR = 0.250;
-    private static double goalMaxX = 300;
-    private static double goalMinX = 10;
+    private static double goalMaxX = 150;
+    private static double goalMinX = 5;
     private static double goalMaxx = 1;
     private static double goalMinx = -1;
     private static double goalNeutralOffSetX = 0;
     private static double goalPGainX = 0.25;
     private static double goalScaledX = 0;
     public static double goalScaledRadius = 0;
-    public static double MaxRadius = 195;
-    private static double MinRadius = 10;
+    public static double MaxRadius = 38;
+    private static double MinRadius = 7;
     private static double MaxOutR = 1;
     private static double MinOutR = -1;
     private static double NeutralOffSetR = 0.25;
     private static double PGainR = 0.250;
-    private static double MaxX = 300;
-    private static double MinX = 10;
+    private static double MaxX = 150;
+    private static double MinX = 5;
     private static double Maxx = 1;
     private static double Minx = -1;
-    private static double NeutralOffSetX = 0;
+
+    // NeutralOffSetX - center of ball is at 937 / 1280 = 0.76 on the x axis when 
+    // robot is right on the ball.  640 / 1280 = 0.50 is straight in the middle.  
+    // 0.76 - 0.50 = 0.26.
+    private static double NeutralOffSetX = 0.26;
     private static double PGainX = 0.25;
     private static double ScaledX = 0;
     public static double ScaledRadius = 0;
