@@ -28,8 +28,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
  *
  */
 public class Indexer extends Subsystem {
-    //private static Spark lowSpark = new Spark(RobotMap.FIRST_INDEXER_ADDRESS);
-    //private static Spark upperSpark = new Spark(RobotMap.SECOND_INDEXER_ADDRESS);
+    private static Spark lowSpark = new Spark(RobotMap.FIRST_INDEXER_ADDRESS);
+    private static Spark upperSpark = new Spark(RobotMap.SECOND_INDEXER_ADDRESS);
     private static DigitalInput Button1 = new DigitalInput(RobotMap.INDEXER_SWITCH_1);
     private static DigitalInput Button2 = new DigitalInput(RobotMap.INDEXER_SWITCH_2);
     private static DigitalInput Button3 = new DigitalInput(RobotMap.INDEXER_SWITCH_3);
@@ -77,14 +77,14 @@ public class Indexer extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     public static void testMotors(double motorSpeed) {
-        //lowSpark.set(motorSpeed);
-        //upperSpark.set(motorSpeed);
+        lowSpark.set(motorSpeed);
+        upperSpark.set(motorSpeed);
     }
     //Index with no balls we are going to keep the conveyor running until we pick up a ball.
     //We will then read when the sensor is hit and stop the conveyor every time and repeat 
     //until we go to shoot the balls. Intake proccess after intake will be automatic.
     public void index() {
-        /*if (Button3.get() && numberCellsInIndexer == 2){
+        if (Button3.get() && numberCellsInIndexer == 2){
             lowSpark.set(0);
             upperSpark.set(0);
             
@@ -106,11 +106,11 @@ public class Indexer extends Subsystem {
             lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
             upperSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
             
-        }*/
+        }
     }
     public static void flush() {
-        //lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
-        //upperSpark.set(RobotMap.UPPER_INDEXER_SPEED);
+        lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
+        upperSpark.set(RobotMap.UPPER_INDEXER_SPEED);
     }
 
     public static void flushRunLowerShooter() {
@@ -120,8 +120,8 @@ public class Indexer extends Subsystem {
 
     }
     public static void stop() {
-        //lowSpark.set(0);
-        //upperSpark.set(0);
+        lowSpark.set(0);
+        upperSpark.set(0);
     }
 }
 

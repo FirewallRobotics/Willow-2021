@@ -35,6 +35,7 @@ import frc.robot.subsystems.*;
 public class Robot extends TimedRobot {
 
     public static final DoubleSolenoid firstSolenoid = new DoubleSolenoid(4,5);
+    public static final DoubleSolenoid secondSolenoid = new DoubleSolenoid(6,7);
 	Command autonomousCommand;
     SendableChooser<Command> chooser = new SendableChooser<>();
     String driveString;
