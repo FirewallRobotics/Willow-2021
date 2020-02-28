@@ -7,7 +7,7 @@ public class FlushIndexerLowerShootCommand extends TimedCommand {
 
     public FlushIndexerLowerShootCommand(double timeout) {
         super(timeout);
-        requires(Robot.indexer);// indexer is needed to intake the ball
+        requires(Robot.indexer); // indexer is needed to intake the ball
     }
 
     protected void initialize() {
