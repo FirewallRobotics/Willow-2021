@@ -31,12 +31,16 @@ public class RobotMap {
     public static int TURRET_ADDRESS                  = 5;
     public static int FIRST_SHOOTER_ADDRESS           = 6;
     public static int SECOND_SHOOTER_ADDRESS          = 7;
+    public static int PULLUP_ELEVATOR1_ADDRESS        = 8;
+    public static int PULLUP_ELEVATOR2_ADDRESS        = 9;
     
     // PWM motor controllers
-    public static int INTAKER_ADDRESS                 = 2;
     public static int FIRST_INDEXER_ADDRESS           = 0;
     public static int SECOND_INDEXER_ADDRESS          = 1;
-    public static int THIRD_INDEXER_ADDRESS           = 3;
+    public static int INTAKER_ADDRESS                 = 2;
+    public static int FIRST_ELEVATOR_ADDRESS          = 3;
+    public static int SECOND_ELEVATOR_ADDRESS         = 4;
+    //public static int THIRD_INDEXER_ADDRESS         = 3;
     
     // Speed constants
     public static double DRIVETRAIN_DEADBAND          = 0.26;

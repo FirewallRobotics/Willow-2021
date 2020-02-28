@@ -92,9 +92,9 @@ public class OI {
         firstB.whenPressed(new IndexerCommand());
         firstX.whenPressed(new StopIndexer());
         firstY.whenPressed(new ShooterMoveCommand());
-        firstBumperLeft.whenPressed(new ExtendArmsCommand());
-        firstBumperRight.whenPressed(new PullupCommand());
-        firstStart.whenPressed(new ClimbCommand());
+        firstBumperLeft.whileHeld(new ExtendArmsCommand());
+        firstBumperRight.whileHeld(new PullupCommand());
+        //firstStart.whenPressed(new ClimbCommand());
         firstBack.whenPressed(new StopShooter());
         firstStickLeft.whenPressed(new ShooterMoveCommand());
         //xbox controller 2
