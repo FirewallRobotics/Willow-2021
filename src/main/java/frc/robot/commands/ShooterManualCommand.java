@@ -18,8 +18,8 @@ public class ShooterManualCommand extends Command {
      * execute() - In our execute method we call a moveTurret() method and the shoot() method.
      */
     protected void execute() {
-        Shooter.moveTurret(Robot.oi.get2ndXboxController().getBumper(GenericHID.Hand.kLeft),
-                           Robot.oi.get2ndXboxController().getBumper(GenericHID.Hand.kRight));
+        //Shooter.moveTurret(Robot.oi.get2ndXboxController().getBumper(GenericHID.Hand.kLeft),
+        //                   Robot.oi.get2ndXboxController().getBumper(GenericHID.Hand.kRight));
         Shooter.shoot(Robot.oi.get2ndXboxController().getTriggerAxis(GenericHID.Hand.kLeft));
     }
 

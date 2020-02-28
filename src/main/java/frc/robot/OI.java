@@ -87,6 +87,17 @@ public class OI {
 
     //This is what the buttons do when they are pressed. First references the black xbox controller which drives
     //second references the pink xbox controller which controls the shooter functions and the intake and indexer
+        //xbox controller 1
+        firstA.whenPressed(new DriveToPowerCell());
+        firstB.whenPressed(new IndexerCommand());
+        firstX.whenPressed(new StopIndexer());
+        firstY.whenPressed(new ShooterMoveCommand());
+        firstBumperLeft.whenPressed(new ExtendArmsCommand());
+        firstBumperRight.whenPressed(new PullupCommand());
+        firstStart.whenPressed(new ClimbCommand());
+        firstBack.whenPressed(new StopShooter());
+        firstStickLeft.whenPressed(new ShooterMoveCommand());
+        //xbox controller 2
         secondA.whenPressed(new CapturePowerCell());
         secondB.whenPressed(new ShootUpperPowerCells());
         secondStart.whenPressed(new ExtendIntake());

@@ -41,7 +41,8 @@ public class AutonomousCommand extends CommandGroup {
        ** 2. Move to low goal and shoot 3 balls
        ** 3. Position ourselves in a defensive manner.
        */
-       addSequential(new DriveForwardCommand(RobotMap.AUTO_DRIVE_FORWARD_SPEED));
+      
+       //addSequential(new DriveForwardCommand(RobotMap.AUTO_DRIVE_FORWARD_SPEED));
        addSequential(new LightUpLEDCommand());
        addParallel(new ShooterMoveCommand());
        //addParallel(new adjustTurretCommand());
