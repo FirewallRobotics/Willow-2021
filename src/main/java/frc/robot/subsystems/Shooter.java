@@ -104,6 +104,7 @@ public class Shooter extends Subsystem {
     public void periodic() {
         SmartDashboard.putNumber("Turret Encoder", getMeasurement());
         SmartDashboard.putNumber("Shooter Speed", getShooterSpeed());
+        SmartDashboard.putBoolean("ledRing.get", ledRing.get());
         // Put code here to be run every loop
 
     }
@@ -135,19 +136,8 @@ public class Shooter extends Subsystem {
     }
 
     public static void shoot(double triggerAxis) {
-            if (triggerAxis < RobotMap.LOW_JOY_SPEED) {
-                Shooter.set(0);
-                //Shooter2.set(0);
+        Shooter.set(triggerAxis);
             }
-            else if (triggerAxis >= RobotMap.LOW_JOY_SPEED && triggerAxis <= RobotMap.FULL_JOY_SPEED) {
-                Shooter.set(ControlMode.Velocity, 23250);
-                //Shooter2.set(RobotMap.LOW_SHOOTER_SPEED);
-            }
-            else {
-                Shooter.set(RobotMap.FULL_SHOOTER_SPEED);
-                //Shooter2.set(RobotMap.FULL_SHOOTER_SPEED);
-            }
-    }
 
     public static void testMotors(double motorSpeed) {
         Turret.set(motorSpeed);

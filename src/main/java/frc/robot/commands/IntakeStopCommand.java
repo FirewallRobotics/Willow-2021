@@ -3,9 +3,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Intake;
 
-public class IntakeCommand extends Command {
+public class IntakeStopCommand extends Command {
 
-    public IntakeCommand() {
+    public IntakeStopCommand() {
         requires(Robot.intake);// intake is needed to intake the ball
     }
 
@@ -17,7 +17,7 @@ public class IntakeCommand extends Command {
      * execute() - intake the power cell
      */
     protected void execute() {
-        Robot.intake.intakePowerCell();
+        Robot.intake.stop();
     }
 
     /*

@@ -46,8 +46,8 @@ public class DriveTrainCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     @Override
     protected void execute() {
-        DriveTrain.Drive(Robot.oi.get1stXboxController().getY(GenericHID.Hand.kLeft),
-                         -Robot.oi.get1stXboxController().getX(GenericHID.Hand.kRight),
+        DriveTrain.Drive(-Robot.oi.get1stXboxController().getY(GenericHID.Hand.kLeft),
+                         -Robot.oi.get1stXboxController().getY(GenericHID.Hand.kRight),
                          false);
     }
 

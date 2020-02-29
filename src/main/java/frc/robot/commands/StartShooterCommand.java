@@ -16,17 +16,18 @@ public class StartShooterCommand extends Command {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-       Robot.shooter.shoot(1);
+       Robot.shooter.shoot(.75);
     }
 
     /*
      * isFinished - Our isFinished method always returns false meaning this command never completes on it's own. The reason we do this is that this command will be set as the default command for the subsystem. This means that whenever the subsystem is not running another command, it will run this command. If any other command is scheduled it will interrupt this command, then return to this command when the other command completes.
      */
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     protected void end() {
+        Robot.shooter.shoot(0);
     }
 
     protected void interrupted() {

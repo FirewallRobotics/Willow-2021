@@ -3,13 +3,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import frc.robot.subsystems.Intake;
 
-public class IntakeCommand extends Command {
+public class NewDriveForwardCommand extends Command {
 
-    public IntakeCommand() {
+    public NewDriveForwardCommand() {
         requires(Robot.intake);// intake is needed to intake the ball
     }
 
     protected void initialize() {
+        setTimeout(1);
         //Intake.extendSolenoid();
     }
 
@@ -17,14 +18,16 @@ public class IntakeCommand extends Command {
      * execute() - intake the power cell
      */
     protected void execute() {
-        Robot.intake.intakePowerCell();
+        Robot.driveTrain.driveAuto(.35, 0);
+        System.out.println("I'm driving");
     }
 
     /*
      * isFinished
      */
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
+        //return false;
     }
 
     protected void end() {

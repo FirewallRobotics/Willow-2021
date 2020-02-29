@@ -84,7 +84,7 @@ public class Indexer extends Subsystem {
     //We will then read when the sensor is hit and stop the conveyor every time and repeat 
     //until we go to shoot the balls. Intake proccess after intake will be automatic.
     public void index() {
-        if (Button3.get() && numberCellsInIndexer == 2){
+        /*if (Button3.get() && numberCellsInIndexer == 2){
             lowSpark.set(0);
             upperSpark.set(0);
             
@@ -102,11 +102,11 @@ public class Indexer extends Subsystem {
             
             numberCellsInIndexer = 1;
         }
-        else {
-            lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
-            upperSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);
+        else {*/
+            lowSpark.set(-RobotMap.INDEXER_CONVEYOR_SPEED);
+            upperSpark.set(-RobotMap.INDEXER_CONVEYOR_SPEED);
             
-        }
+        //}
     }
     public static void flush() {
         lowSpark.set(RobotMap.INDEXER_CONVEYOR_SPEED);

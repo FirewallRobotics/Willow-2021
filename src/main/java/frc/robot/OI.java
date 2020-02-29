@@ -74,7 +74,7 @@ public class OI {
         JoystickButton firstBack = new JoystickButton(firstController, XboxController.Button.kBack.value);
         JoystickButton firstStart = new JoystickButton(firstController, XboxController.Button.kStart.value);
         
-        JoystickButton secondA = new JoystickButton(firstController, XboxController.Button.kA.value);
+        JoystickButton secondA = new JoystickButton(secondController, XboxController.Button.kA.value);
         JoystickButton secondB = new JoystickButton(secondController, XboxController.Button.kB.value);
         JoystickButton secondX = new JoystickButton(secondController, XboxController.Button.kX.value);
         JoystickButton secondY = new JoystickButton(secondController, XboxController.Button.kY.value);
@@ -88,9 +88,10 @@ public class OI {
     //This is what the buttons do when they are pressed. First references the black xbox controller which drives
     //second references the pink xbox controller which controls the shooter functions and the intake and indexer
         //xbox controller 1
-        firstA.whenPressed(new DriveToPowerCell());
+        //irstA.whenPressed(new DriveToPowerCell());
+        //firstA.whenPressed( new IntakeCommand());
         firstB.whenPressed(new IndexerCommand());
-        firstX.whenPressed(new StopIndexer());
+        //firstX.whenPressed(new StopIndexer());
         firstY.whenPressed(new ShooterMoveCommand());
         firstBumperLeft.whileHeld(new ExtendArmsCommand());
         firstBumperRight.whileHeld(new PullupCommand());
@@ -98,15 +99,22 @@ public class OI {
         firstBack.whenPressed(new StopShooter());
         firstStickLeft.whenPressed(new ShooterMoveCommand());
         //xbox controller 2
-        secondA.whenPressed(new CapturePowerCell());
-        secondB.whenPressed(new ShootUpperPowerCells());
-        secondStart.whenPressed(new ExtendIntake());
-        secondBack.whenPressed(new IntakeCommand());
-        secondStart.whenReleased(new RetractIntake());
-        secondX.whenPressed(new FlushIndexerCommand(RobotMap.FLUSH_INDEXER_TIME));
-        secondY.whenPressed(new StartShooterCommand());
-        secondBumperRight.whenPressed(new LightUpLEDCommand());
-        secondBumperLeft.whenPressed(new TurnOffLEDCommand());
+        secondA.whileHeld(new IntakeCommand());
+        secondA.whenReleased(new IntakeStopCommand());
+        secondB.whileHeld(new IndexerCommand());
+        secondB.whenReleased(new StopIndexer());
+        secondX.whenPressed(new ExtendIntake());
+        //secondY.whenPressed(new ShootUpperPowerCells());
+        //secondBack.whenPressed(new ExtendIntake());
+        //secondBack.whenPressed(new IntakeCommand());
+        secondStart.whenPressed(new RetractIntake());
+        //secondX.whenPressed(new FlushIndexerCommand(RobotMap.FLUSH_INDEXER_TIME));
+        secondY.whileHeld(new StartShooterCommand());
+        secondY.whenReleased(new StopShooter());
+        secondBumperRight.whileHeld(new LightUpLEDCommand());
+        secondBumperRight.whenReleased(new TurnOffLEDCommand());
+        secondBumperLeft.whenPressed(new ShootUpperPowerCells());
+        secondBack.whenPressed(new CapturePowerCell());
         //secondStart.whenPressed();
         
         // SmartDashboard Buttons

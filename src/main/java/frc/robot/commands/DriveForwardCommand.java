@@ -43,7 +43,7 @@ public class DriveForwardCommand extends TimedCommand {
     // Called just before this Command runs the first time
     @Override
     protected void initialize() {
-        DriveTrain.Drive(0.30,0.30,false);
+        DriveTrain.Drive(0.50,0,false);
     }
 
     // Called once after isFinished returns true

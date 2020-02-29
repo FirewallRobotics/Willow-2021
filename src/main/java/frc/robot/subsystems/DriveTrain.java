@@ -145,7 +145,7 @@ public class DriveTrain extends Subsystem {
             break;
         default:
             // default to curvature drive
-            m_myRobot.arcadeDrive(y, y2);
+            m_myRobot.tankDrive(1.2*y, 1.2*y2);
             break;
         }
     }
@@ -191,7 +191,14 @@ public class DriveTrain extends Subsystem {
         //System.out.println("LeftSpeed: "+ LeftSpeed + " RightSpeed: " + RightSpeed);
         leftMaster.set(ControlMode.PercentOutput,  -RightSpeed);
         rightMaster.set(ControlMode.PercentOutput, -LeftSpeed);
-	}
+               
+    }
+    public void driveAuto(double speed, double turnRate) {
+        System.out.println("Entering driveAuto command");
+        //m_myRobot.arcadeDrive(speed, turnRate);
+        leftMaster.set(ControlMode.PercentOutput,  speed);
+        rightMaster.set(ControlMode.PercentOutput, -speed);
+    }
 }
 
     // Put methods for controlling this subsystem
