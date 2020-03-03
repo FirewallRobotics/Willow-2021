@@ -113,7 +113,8 @@ public class OI {
         secondY.whenReleased(new StopShooter());
         secondBumperRight.whileHeld(new LightUpLEDCommand());
         secondBumperRight.whenReleased(new TurnOffLEDCommand());
-        secondBumperLeft.whenPressed(new ShootUpperPowerCells());
+        secondBumperLeft.whileHeld(new ShootUpperPowerCells());
+        secondBumperLeft.whenReleased(new StopShooter());
         secondBack.whenPressed(new CapturePowerCell());
         //secondStart.whenPressed();
         

@@ -22,6 +22,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 
@@ -70,6 +71,7 @@ public class Robot extends TimedRobot {
         wheelSpinner = new WheelSpinner();
         indexer = new Indexer();
         elevator = new Elevator();
+        CameraServer.getInstance().startAutomaticCapture();
         //camera = new Camera();
         //logicEngine = new LogicEngine();
 
