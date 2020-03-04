@@ -5,6 +5,7 @@ public class CapturePowerCell extends CommandGroup {
 
     public CapturePowerCell() {
        //addSequential(new DriveToPowerCell());
+       addSequential(new ExtendIntake());
        addSequential(new IntakeCommand());
        addSequential(new IndexerCommand()); 
     }

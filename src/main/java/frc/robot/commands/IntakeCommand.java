@@ -24,7 +24,7 @@ public class IntakeCommand extends Command {
      * isFinished
      */
     protected boolean isFinished() {
-        return false;
+        return (Robot.intake.finished());
     }
 
     protected void end() {

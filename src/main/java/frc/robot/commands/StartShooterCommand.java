@@ -16,7 +16,7 @@ public class StartShooterCommand extends Command {
      * (for example, if we want the joysticks to be less sensitive, we can multiply them by .5 in the getLeftSpeed method and leave our command the same).
      */
     protected void execute() {
-       Robot.shooter.shoot(.75);
+       Robot.shooter.shoot(1);
     }
 
     /*
