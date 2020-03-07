@@ -39,10 +39,9 @@ public class RobotMap {
     // PWM motor controllers
     public static int FIRST_INDEXER_ADDRESS           = 0;
     //public static int SECOND_INDEXER_ADDRESS          = 1;
-    public static int INTAKER_ADDRESS                 = 2;
+    //public static int INTAKER_ADDRESS                 = 2;
     public static int FIRST_ELEVATOR_ADDRESS          = 3;
     public static int SECOND_ELEVATOR_ADDRESS         = 4;
-    //public static int THIRD_INDEXER_ADDRESS         = 3;
     
     // Speed constants
     public static double DRIVETRAIN_DEADBAND          = 0.26;
@@ -51,7 +50,7 @@ public class RobotMap {
     public static double INTAKER_MOTOR_SPEED          = 1.0;
     public static double INDEXER_CONVEYOR_SPEED       = -1.0;
     public static double FLUSH_CONVEYOR_SPEED         = 1.0;
-    public static double UPPER_INDEXER_SPEED          = 1.0;
+    public static double UPPER_INDEXER_SPEED          = -1.0;
     public static double LOW_SHOOTER_SPEED            = 0.80;
     public static double FULL_SHOOTER_SPEED           = 1.0;
 

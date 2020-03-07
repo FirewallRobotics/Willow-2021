@@ -94,6 +94,7 @@ public class OI {
         //firstX.whenPressed(new StopIndexer());
         firstY.whenPressed(new ShooterMoveCommand());
         firstBumperLeft.whileHeld(new ExtendArmsCommand());
+        firstBumperLeft.whenReleased(new StopArmsCommand());
         firstBumperRight.whileHeld(new PullupCommand());
         //firstStart.whenPressed(new ClimbCommand());
         firstBack.whenPressed(new StopShooter());

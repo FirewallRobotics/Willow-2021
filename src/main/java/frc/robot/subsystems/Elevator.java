@@ -79,7 +79,8 @@ public class Elevator extends Subsystem {
 
         public static void extendArms() {
             climbSpark1.set(.2);
-            climbSpark2.set(.2);
+            climbSpark2.set(-.2);
+            System.out.println("Elevator Is On");
     }
 
     public static void retractArms() {
