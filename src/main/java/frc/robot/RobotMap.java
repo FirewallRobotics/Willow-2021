@@ -23,21 +23,40 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-	// CAN motor controllers
-    public static int LEFT_MASTER_DRIVETRAIN_ADDRESS  = 1;
-    public static int RIGHT_MASTER_DRIVETRAIN_ADDRESS = 2;
-    public static int LEFT_SLAVE_DRIVETRAIN_ADDRESS   = 3;
-    public static int RIGHT_SLAVE_DRIVETRAIN_ADDRESS  = 4;
-    public static int TURRET_ADDRESS                  = 5;
-    public static int FIRST_SHOOTER_ADDRESS           = 6;
-    public static int SECOND_SHOOTER_ADDRESS          = 7;
-    public static int PULLUP_ELEVATOR1_ADDRESS        = 8;
-    public static int PULLUP_ELEVATOR2_ADDRESS        = 9;
-    public static int INTAKE_VICTOR_ADDRESS           = 10;
+    // CAN motor controllers
+    public static int LEFT_MASTER_DRIVETRAIN_ADDRESS  = 7;
+    public static int RIGHT_MASTER_DRIVETRAIN_ADDRESS = 1;
+    public static int LEFT_SLAVE_DRIVETRAIN_ADDRESS   = 10;
+    public static int RIGHT_SLAVE_DRIVETRAIN_ADDRESS  = 3;
+    // Encoders
+    public static int[] kLeftEncoderPorts             = new int[] {4, 5};
+    public static int[] kRightEncoderPorts            = new int[] {7, 8};
+    public static int kLeftEncoderIndex               = 6;
+    public static int kRightEncoderIndex              = 9;
+    public static int kEncoderCPR               = 8192;
+    public static double kWheelDiameterInches   = 6;
+    public static double kEncoderDistancePerPulse =
+        // Assumes the encoders are directly mounted on the wheel shafts
+        (kWheelDiameterInches * Math.PI) / (double) kEncoderCPR;
+    public static boolean kGyroReversed               = false;
+    public static final double kTurnP                 = 1;
+    public static final double kTurnI                 = 0;
+    public static final double kTurnD                 = 0;
+    public static final double kMaxTurnRateDegPerS = 100;
+    public static final double kMaxTurnAccelerationDegPerSSquared = 300;
+    public static final double kTurnToleranceDeg = 5;
+    public static final double kTurnRateToleranceDegPerS = 10; // degrees per second
+    //public static int TURRET_ADDRESS                = 5;
+    public static int FIRST_SHOOTER_ADDRESS           = 2;
+    public static int SECOND_SHOOTER_ADDRESS          = 6;
+    //public static int PULLUP_ELEVATOR1_ADDRESS      = 8;
+    //public static int PULLUP_ELEVATOR2_ADDRESS      = 9;
+    public static int INTAKE_VICTOR_ADDRESS           = 9;
     public static int SECOND_INDEXER_ADDRESS          = 11;
+    public static int FIRST_INDEXER_ADDRESS           = 8;
 
     // PWM motor controllers
-    public static int FIRST_INDEXER_ADDRESS           = 0;
+    //public static int FIRST_INDEXER_ADDRESS           = 0;
     //public static int SECOND_INDEXER_ADDRESS          = 1;
     //public static int INTAKER_ADDRESS                 = 2;
     public static int FIRST_ELEVATOR_ADDRESS          = 3;
@@ -60,12 +79,12 @@ public class RobotMap {
     
     // DIO constants
     public static int INTAKER_SWITCH                  = 0;
-    public static int INDEXER_SWITCH_1                = 2;
-    public static int INDEXER_SWITCH_2                = 3;
-    public static int INDEXER_SWITCH_3                = 4;
+    public static int INDEXER_SWITCH_1                = 1;
+    public static int INDEXER_SWITCH_2                = 2;
+    public static int INDEXER_SWITCH_3                = 3;
     //public static int INDEXER_SWITCH_4              = 4;
     //public static int INDEXER_SWITCH_5              = 5;
-    public static int LED_RELAY_ADDRESS               = 1;
+    //public static int LED_RELAY_ADDRESS             = 1;
 
     // Random constants
     public static double FLUSH_INDEXER_TIME           = 5.0;
