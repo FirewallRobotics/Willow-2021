@@ -60,12 +60,12 @@ public class Shooter extends Subsystem {
         //Turret.configSelectedFeedbackSensor(FeedbackDevice.PulseWidthEncodedPosition);
         Shooter.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
         Shooter.setNeutralMode(NeutralMode.Coast);
-        Shooter.setNeutralMode(NeutralMode.Coast);
+        Shooter2.setNeutralMode(NeutralMode.Coast);
         Shooter2.follow(Shooter);
         //ledRing.set(false);
         /* Config sensor used for Primary PID [Velocity] */
     Shooter.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative,
-        RobotMap.kPIDLoopIdx, 
+        RobotMap.kPIDLoopIdx,
         RobotMap.kTimeoutMs);
 
     /**
@@ -138,17 +138,18 @@ public class Shooter extends Subsystem {
 
     public static void shoot(double triggerAxis) {
         Shooter.set(triggerAxis);
+        Shooter2.set(triggerAxis);
             }
 
     public static void testMotors(double motorSpeed) {
         //Turret.set(motorSpeed);
         Shooter.set(motorSpeed);
-        //Shooter2.set(motorSpeed);
+        Shooter2.set(motorSpeed);
     }
 
 	public void stop() {
         Shooter.set(0);
-        //Shooter2.set(0);
+        Shooter2.set(0);
     }
     //public static void turnOn() {
         //ledRing.set(true);

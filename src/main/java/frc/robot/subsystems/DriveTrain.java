@@ -130,7 +130,7 @@ public class DriveTrain extends Subsystem {
         rightMaster.configFactoryDefault();
         leftSlave.configFactoryDefault();
         rightSlave.configFactoryDefault();
-        
+
         m_myRobot = new DifferentialDrive(m_leftMotors, m_rightMotors);
         m_myRobot.setDeadband(RobotMap.DRIVETRAIN_DEADBAND);
         leftSlave.follow(leftMaster);
@@ -269,8 +269,8 @@ public class DriveTrain extends Subsystem {
     public void driveAuto(double speed, double turnRate) {
         System.out.println("Entering driveAuto command");
         //m_myRobot.arcadeDrive(speed, turnRate);
-        leftMaster.set(ControlMode.PercentOutput,  speed);
-        rightMaster.set(ControlMode.PercentOutput, -speed);
+        leftMaster.set(ControlMode.PercentOutput,  -speed);
+        rightMaster.set(ControlMode.PercentOutput, speed);
     }
 
 	public Object arcadeDrive(int i, double output) {

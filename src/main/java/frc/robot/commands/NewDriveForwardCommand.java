@@ -10,7 +10,7 @@ public class NewDriveForwardCommand extends Command {
     }
 
     protected void initialize() {
-        setTimeout(1);
+        setTimeout(3);
         //Intake.extendSolenoid();
     }
 
@@ -18,7 +18,7 @@ public class NewDriveForwardCommand extends Command {
      * execute() - intake the power cell
      */
     protected void execute() {
-        Robot.driveTrain.driveAuto(.35, 0);
+        Robot.driveTrain.driveAuto(-.80, 0);
     }
 
     /*
