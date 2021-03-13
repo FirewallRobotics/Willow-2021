@@ -4,7 +4,7 @@
     "motorPorts": [7,10],
     # Only if you are doing drive (leave empty "[]" if not)
     "rightMotorPorts": [1,3],
-    # Class names of motor controllers used.
+    # Class names of motor controllers used.`
     # 'WPI_TalonSRX'
     # 'WPI_VictorSPX'
     # 'WPI_TalonFX'
@@ -30,7 +30,7 @@
     "rightEncoderPorts": [7,8],
     # Set to True if encoders need to be inverted
     # If doing drive test, treat this as the left side of the drivetrain
-    "encoderInverted": False,
+    "encoderInverted": True,
     # Only if you are doing drive (set to False if not needed)
     "rightEncoderInverted": False,
     # ** The following is only if you are using a gyro for the DriveTrain test**
@@ -44,6 +44,9 @@
     # "0" (Pigeon CAN ID or AnalogGyro channel),
     # "new WPI_TalonSRX(3)" (Pigeon on a Talon SRX),
     # "" (NavX using default SPI, ADXRS450 using onboard CS0, or no gyro)
-    "gyroPort": "SPI.Port.kMXP",
+    "gyroPort": "SPI.Port.kOnboardCS0",
 }
+
+
+
 

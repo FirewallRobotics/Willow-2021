@@ -99,9 +99,6 @@ public class Robot extends TimedRobot {
   public WPI_TalonSRX setupWPI_TalonSRX(int port, Sides side, boolean inverted) {
     // create new motor and set neutral modes (if needed)
     WPI_TalonSRX motor = new WPI_TalonSRX(port);
-    // setup talon
-    motor.configFactoryDefault();
-    motor.setNeutralMode(NeutralMode.Brake);
     motor.setInverted(inverted);
     
     // setup encoder if motor isn't a follower
@@ -127,7 +124,7 @@ public class Robot extends TimedRobot {
         break;
       case LEFT:
         encoder = new Encoder(4, 5);
-        encoder.setReverseDirection(false);
+        encoder.setReverseDirection(true);
         encoder.setDistancePerPulse(encoderConstant);
         leftEncoderPosition = encoder::getDistance;
         leftEncoderRate = encoder::getRate;
@@ -149,9 +146,6 @@ public class Robot extends TimedRobot {
   public WPI_VictorSPX setupWPI_VictorSPX(int port, Sides side, boolean inverted) {
     // create new motor and set neutral modes (if needed)
     WPI_VictorSPX motor = new WPI_VictorSPX(port);
-    // setup talon
-    motor.configFactoryDefault();
-    motor.setNeutralMode(NeutralMode.Brake);
     motor.setInverted(inverted);
     
     // setup encoder if motor isn't a follower
@@ -177,7 +171,7 @@ public class Robot extends TimedRobot {
         break;
       case LEFT:
         encoder = new Encoder(4, 5);
-        encoder.setReverseDirection(false);
+        encoder.setReverseDirection(true);
         encoder.setDistancePerPulse(encoderConstant);
         leftEncoderPosition = encoder::getDistance;
         leftEncoderRate = encoder::getRate;
@@ -206,13 +200,19 @@ public class Robot extends TimedRobot {
     // create left motor
     WPI_TalonSRX leftMotor = setupWPI_TalonSRX(7, Sides.LEFT, false);
 
-    WPI_VictorSPX leftFollowerID10 = setupWPI_VictorSPX(10, Sides.FOLLOWER, false);
-    leftFollowerID10.follow(leftMotor);
+    ArrayList<SpeedController> leftMotors = new ArrayList<SpeedController>();
+    leftMotors.add(setupWPI_VictorSPX(10, Sides.FOLLOWER, false));
+    SpeedController[] leftMotorControllers = new SpeedController[leftMotors.size()];
+    leftMotorControllers = leftMotors.toArray(leftMotorControllers);
+    SpeedControllerGroup leftGroup = new SpeedControllerGroup(leftMotor, leftMotorControllers);
 
     WPI_TalonSRX rightMotor = setupWPI_TalonSRX(1, Sides.RIGHT, false);
-    WPI_VictorSPX rightFollowerID3 = setupWPI_VictorSPX(3, Sides.FOLLOWER, false);    
-    rightFollowerID3.follow(rightMotor);
-    drive = new DifferentialDrive(leftMotor, rightMotor);
+    ArrayList<SpeedController> rightMotors = new ArrayList<SpeedController>();
+    rightMotors.add(setupWPI_VictorSPX(3, Sides.FOLLOWER, false));
+    SpeedController[] rightMotorControllers = new SpeedController[rightMotors.size()];
+    rightMotorControllers = rightMotors.toArray(rightMotorControllers);
+    SpeedControllerGroup rightGroup = new SpeedControllerGroup(rightMotor, rightMotorControllers);
+    drive = new DifferentialDrive(leftGroup, rightGroup);
     drive.setDeadband(0);
 
     //
@@ -221,7 +221,7 @@ public class Robot extends TimedRobot {
 
     // Note that the angle from the NavX and all implementors of WPILib Gyro
     // must be negated because getAngle returns a clockwise positive angle
-    Gyro gyro = new ADXRS450_Gyro(SPI.Port.kMXP);
+    Gyro gyro = new ADXRS450_Gyro(SPI.Port.kOnboardCS0);
     gyroAngleRadians = () -> -1 * Math.toRadians(gyro.getAngle());
 
     // Set the update rate instead of using flush because of a ntcore bug

@@ -165,6 +165,8 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putNumber("goalScaledRadius",goalScaledRadius);
         SmartDashboard.putNumber("ScaledX", ScaledX);
         SmartDashboard.putNumber("ScaledRadius",ScaledRadius);
+        SmartDashboard.putNumber("LeftMaster",leftMaster.getStatorCurrent());
+        SmartDashboard.putNumber("RightMaster",rightMaster.getStatorCurrent());
 
     }
     public void resetEncoders() {
@@ -225,6 +227,11 @@ public class DriveTrain extends Subsystem {
 
     public static void testMotors(double motorSpeed) {
         m_myRobot.tankDrive(motorSpeed, motorSpeed);
+    }
+
+    public static void testOneMotorAtATimePerSide() {
+        leftMaster.set(0.5);
+        rightMaster.set(0.5);
     }
 
     public static void driveToPowerCell() {
