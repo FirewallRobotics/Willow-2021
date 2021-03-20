@@ -13,6 +13,7 @@ public class AutonomousShoot extends CommandGroup {
         //addSequential(new ShootUpperPowerCells());  
         //addSequential(new TimedCommand(5.0));
         //addSequential(new StopShooter());
-        addParallel(new NewDriveForwardCommand());
+        //addParallel(new NewDriveForwardCommand());
+        //addParallel(new BounceAutoCommand());
     }
 }
