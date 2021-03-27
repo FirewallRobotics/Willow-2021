@@ -174,6 +174,8 @@ public class DriveTrain extends Subsystem {
         SmartDashboard.putNumber("ScaledRadius",ScaledRadius);
         SmartDashboard.putNumber("LeftMaster",leftMaster.getStatorCurrent());
         SmartDashboard.putNumber("RightMaster",rightMaster.getStatorCurrent());
+        SmartDashboard.putNumber("LeftRate", m_leftEncoder.getRate());
+        SmartDashboard.putNumber("RightRate", m_rightEncoder.getRate());
 
     }
     public void resetEncoders() {

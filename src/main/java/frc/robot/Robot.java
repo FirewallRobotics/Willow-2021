@@ -28,6 +28,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.List;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import frc.robot.commands.*;
@@ -36,6 +37,9 @@ import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.controller.RamseteController;
 import edu.wpi.first.wpilibj.controller.SimpleMotorFeedforward;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.geometry.Pose2d;
+import edu.wpi.first.wpilibj.geometry.Rotation2d;
+import edu.wpi.first.wpilibj.geometry.Translation2d;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveKinematics;
 import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
 import edu.wpi.first.wpilibj.trajectory.*;
@@ -139,26 +143,57 @@ public class Robot extends TimedRobot {
                 RobotMap.kDriveKinematics,
                 10);*/
     
-        String trajectoryJSON = "paths/bounce_path.wpilib.json";
+        /*String trajectoryJSON = "paths/slalompath.json";
         Trajectory trajectory = new Trajectory();
         try {
             Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
             trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
         } catch (IOException ex) {
             DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON, ex.getStackTrace());
-        }
+        }*/
     
+            // Create a voltage constraint to ensure we don't accelerate too fast
+    var autoVoltageConstraint =
+    new DifferentialDriveVoltageConstraint(
+        new SimpleMotorFeedforward(1.65,
+                                   1.14,
+                                   .0152),
+        new DifferentialDriveKinematics(1.40786010565637),
+        10);
+
+// Create config for trajectory
+TrajectoryConfig config =
+    new TrajectoryConfig(5,5)
+        // Add kinematics to ensure max speed is actually obeyed
+        .setKinematics(new DifferentialDriveKinematics(1.40786010565637))
+        // Apply the voltage constraint
+        .addConstraint(autoVoltageConstraint);
+
+// An example trajectory to follow.  All units in meters.
+Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
+    // Start at the origin facing the +X direction
+    new Pose2d(0, 0, new Rotation2d(0)),
+    // Pass through these two interior waypoints, making an 's' curve path
+    List.of(
+        new Translation2d(1, 1),
+        new Translation2d(2, -1)
+    ),
+    // End 3 meters straight ahead of where we started, facing forward
+    new Pose2d(3, 0, new Rotation2d(0)),
+    // Pass config
+    config
+);
         RamseteCommand ramseteCommand = new RamseteCommand(
             trajectory,
             driveTrain::getPose,
             new RamseteController(),
-            new SimpleMotorFeedforward(2.03,
-                                       .87,
-                                       .00367),
-            new DifferentialDriveKinematics(0.67),
+            new SimpleMotorFeedforward(1.65,
+                                       1.14,
+                                       .0152),
+            new DifferentialDriveKinematics(1.40786010565637),
             driveTrain::getWheelSpeeds,
-            new PIDController(0.0074, 0, 0),
-            new PIDController(0.0074, 0, 0),
+            new PIDController(1.64e-9, 0, 0),
+            new PIDController(1.64e-9, 0, 0),
             // RamseteCommand passes volts to the callback
             driveTrain::tankDriveVolts
         );
