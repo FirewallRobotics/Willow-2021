@@ -195,8 +195,8 @@ public class DriveTrain extends Subsystem {
         return m_rightEncoder;
       }
       public void tankDriveVolts(double leftVolts, double rightVolts) {
-        m_leftMotors.setVoltage(leftVolts);
-        m_rightMotors.setVoltage(-rightVolts);
+        m_leftMotors.setVoltage(0.2*leftVolts);
+        m_rightMotors.setVoltage(0.2*-rightVolts);
         m_myRobot.feed();
       }
       public void m_odometry(Pose2d initialPose) {

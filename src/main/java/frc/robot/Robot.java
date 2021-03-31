@@ -142,18 +142,17 @@ public class Robot extends TimedRobot {
                                            RobotMap.kaVoltSecondsSquaredPerMeter),
                 RobotMap.kDriveKinematics,
                 10);*/
-    
-        /*String trajectoryJSON = "paths/slalompath.json";
+        String trajectoryJSON = "paths/LoopTest.wpilib.json";
         Trajectory trajectory = new Trajectory();
         try {
             Path trajectoryPath = Filesystem.getDeployDirectory().toPath().resolve(trajectoryJSON);
             trajectory = TrajectoryUtil.fromPathweaverJson(trajectoryPath);
         } catch (IOException ex) {
             DriverStation.reportError("Unable to open trajectory: " + trajectoryJSON, ex.getStackTrace());
-        }*/
-    
+        }
+
             // Create a voltage constraint to ensure we don't accelerate too fast
-    var autoVoltageConstraint =
+    /*var autoVoltageConstraint =
     new DifferentialDriveVoltageConstraint(
         new SimpleMotorFeedforward(1.65,
                                    1.14,
@@ -182,18 +181,23 @@ Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
     new Pose2d(3, 0, new Rotation2d(0)),
     // Pass config
     config
-);
+);*/
         RamseteCommand ramseteCommand = new RamseteCommand(
             trajectory,
             driveTrain::getPose,
             new RamseteController(),
-            new SimpleMotorFeedforward(1.65,
-                                       1.14,
-                                       .0152),
-            new DifferentialDriveKinematics(1.40786010565637),
+            //new SimpleMotorFeedforward(0.8,
+            //                           5, // turns faster/slower
+            //                           .6),
+            new SimpleMotorFeedforward(1.59,
+                                       0.0489,
+                                       0.000164 ),
+            new DifferentialDriveKinematics(1.3758587456666158),
             driveTrain::getWheelSpeeds,
-            new PIDController(1.64e-9, 0, 0),
-            new PIDController(1.64e-9, 0, 0),
+            new PIDController(0.000126, 0, 0),
+            new PIDController(0.000126, 0, 0),
+            //new PIDController(.1, 0, 0),
+            //new PIDController(.1, 0, 0),
             // RamseteCommand passes volts to the callback
             driveTrain::tankDriveVolts
         );
